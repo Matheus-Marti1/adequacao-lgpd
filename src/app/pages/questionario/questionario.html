@@ -1,1 +1,49 @@
-<p>questionario works!</p>
+<div class="container">
+  <div class="cabecalho">
+    <h2>Avaliação de Adequação - LGPD</h2>
+    <p>
+      Responda às questões abaixo de acordo com a realidade atual da
+      organização.
+    </p>
+  </div>
+
+  <div class="card-pergunta" *ngFor="let item of listaPerguntas; let i = index">
+    <div class="card-header">
+      <span class="badge-tema">{{ item.tema }}</span>
+      <span class="badge-artigo">{{ item.artigo }}</span>
+    </div>
+
+    <div class="card-body">
+      <h3>{{ i + 1 }}. {{ item.pergunta }}</h3>
+    </div>
+
+    <div class="card-footer">
+      <button
+        class="btn-opcao btn-sim"
+        [class.selecionado-sim]="item.respostaSelecionada === 'Sim'"
+        (click)="item.respostaSelecionada = 'Sim'">
+        Sim
+      </button>
+
+      <button
+        class="btn-opcao btn-nao"
+        [class.selecionado-nao]="item.respostaSelecionada === 'Não'"
+        (click)="item.respostaSelecionada = 'Não'">
+        Não
+      </button>
+
+      <button
+        class="btn-opcao btn-parcial"
+        [class.selecionado-parcial]="item.respostaSelecionada === 'Parcialmente'"
+        (click)="item.respostaSelecionada = 'Parcialmente'">
+        Parcialmente
+      </button>
+    </div>
+  </div>
+
+  <div class="acoes-finais">
+    <button class="btn-gerar" (click)="finalizarAvaliacao()">
+      Analisar Respostas e Gerar Relatório
+    </button>
+  </div>
+</div>
