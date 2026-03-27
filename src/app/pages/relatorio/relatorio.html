@@ -1,1 +1,62 @@
-<p>relatorio works!</p>
+<div class="container-relatorio" id="area-impressao">
+  <div class="cabecalho-relatorio">
+    <h1>Relatório de Adequação - LGPD</h1>
+    <p>Diagnóstico gerado com base no questionário de conformidade.</p>
+
+    <div class="painel-resumo">
+      <div class="resumo-item">
+        <span class="resumo-valor">{{ taxaConformidade }}%</span>
+        <span class="resumo-label">Índice de Conformidade</span>
+      </div>
+      <div class="resumo-item">
+        <span class="resumo-valor">{{ pontosAtencao.length }}</span>
+        <span class="resumo-label">Ações Necessárias</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alerta-sucesso" *ngIf="pontosAtencao.length === 0">
+    <h3>Parabéns! 🎉</h3>
+    <p>
+      Sua empresa parece estar em total conformidade com os artigos avaliados da
+      Lei Geral de Proteção de Dados.
+    </p>
+  </div>
+
+  <div class="plano-acao" *ngIf="pontosAtencao.length > 0">
+    <h2>Plano de Ação e Melhorias</h2>
+    <p class="subtitulo">
+      Os itens abaixo requerem atenção imediata ou ajustes estruturais para
+      adequação à legislação:
+    </p>
+
+    <div class="card-melhoria" *ngFor="let item of pontosAtencao">
+      <div class="card-melhoria-header">
+        <span class="badge-tema">{{ item.tema }}</span>
+        <span class="badge-artigo">{{ item.artigo }}</span>
+        <span
+          class="badge-status"
+          [ngClass]="{'status-nao': item.respostaSelecionada === 'Não', 'status-parcial': item.respostaSelecionada === 'Parcialmente'}">
+          Resposta: {{ item.respostaSelecionada || 'Não respondido' }}
+        </span>
+      </div>
+
+      <div class="card-melhoria-body">
+        <p class="pergunta-original">
+          <strong>Avaliação:</strong> {{ item.pergunta }}
+        </p>
+        <div class="caixa-sugestao">
+          <strong>Recomendação:</strong>
+          <p>{{ item.sugestaoMelhoria }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="acoes-relatorio oculta-impressao">
+  <button class="btn-voltar" routerLink="/">Voltar ao Início</button>
+  <button class="btn-imprimir" (click)="imprimirRelatorio()">
+    Salvar Relatório como PDF
+  </button>
+</div>

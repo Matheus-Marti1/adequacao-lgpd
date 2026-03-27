@@ -1,14 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
-export interface PerguntaLGPD {
-  id: number;
-  artigo: string;
-  tema: string;
-  pergunta: string;
-  respostaSelecionada: "Sim" | "Não" | "Parcialmente" | null;
-  sugestaoMelhoria: string;
-}
+import { Router } from "@angular/router";
+import { AvaliacaoService, PerguntaLGPD } from "../../services/avaliacao";
 
 @Component({
   selector: "app-questionario",
@@ -18,6 +11,8 @@ export interface PerguntaLGPD {
   styleUrl: "./questionario.css",
 })
 export class Questionario {
+  private router = inject(Router);
+  private avaliacaoService = inject(AvaliacaoService);
   listaPerguntas: PerguntaLGPD[] = [
     {
       id: 1,
@@ -56,9 +51,8 @@ export class Questionario {
       );
       return;
     }
-    console.log("Respostas prontas para o relatório:", this.listaPerguntas);
-    alert(
-      "Todas as respostas registradas! Próximo passo: enviar para a tela de relatório.",
-    );
+    this.avaliacaoService.setRespostas(this.listaPerguntas);
+
+    this.router.navigate(["/relatorio"]);
   }
 }
