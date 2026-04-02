@@ -1,7 +1,24 @@
-# Tauri + Angular
+# Diagnóstico de Conformidade LGPD
 
-This template should help get you started developing with Tauri and Angular.
+Um software desktop leve e offline desenvolvido para apoiar empresas na avaliação e adequação à Lei Geral de Proteção de Dados (LGPD), gerando planos de ação baseados em questionários.
 
-## Recommended IDE Setup
+## Como rodar o projeto localmente
 
-[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) + [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template).
+### Pré-requisitos
+
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas na sua máquina:
+
+- [Node.js](https://nodejs.org/) (versão LTS recomendada)
+- [Rust](https://www.rust-lang.org/tools/install) (necessário para compilar o motor do Tauri)
+
+### Executando a aplicação
+
+1. Abra o terminal na pasta raiz do projeto.
+2. Instale as dependências do front-end (Angular) executando o comando:
+   ```bash
+   npm install
+   ```
+3. Inicie o aplicativo em modo de desenvolvimento executando:
+   ```bash
+   npm run tauri dev
+   ```
