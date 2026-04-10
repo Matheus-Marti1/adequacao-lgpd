@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Router } from "@angular/router";
 import { AvaliacaoService, PerguntaLGPD } from "../../services/avaliacao";
@@ -10,7 +10,7 @@ import { AvaliacaoService, PerguntaLGPD } from "../../services/avaliacao";
   templateUrl: "./questionario.html",
   styleUrl: "./questionario.css",
 })
-export class Questionario {
+export class Questionario implements OnInit {
   private router = inject(Router);
   private avaliacaoService = inject(AvaliacaoService);
   listaPerguntas: PerguntaLGPD[] = [
@@ -40,6 +40,22 @@ export class Questionario {
     },
   ];
 
+  ngOnInit() {
+    const dadosRecuperados = this.avaliacaoService.getRespostas();
+    
+    if (dadosRecuperados && dadosRecuperados.length > 0) {
+      this.listaPerguntas = dadosRecuperados;
+    }
+  }
+
+  get porcentagemConcluida(): number {
+  if (this.listaPerguntas.length === 0) return 0;
+  
+  const respondidas = this.listaPerguntas.filter(p => p.respostaSelecionada !== null).length;
+  
+  return Math.round((respondidas / this.listaPerguntas.length) * 100);
+}
+
   finalizarAvaliacao() {
     const perguntasSemResposta = this.listaPerguntas.filter(
       (p) => p.respostaSelecionada === null,
@@ -54,5 +70,9 @@ export class Questionario {
     this.avaliacaoService.setRespostas(this.listaPerguntas);
 
     this.router.navigate(["/relatorio"]);
+  }
+
+  salvarRascunho() {
+    this.avaliacaoService.setRespostas(this.listaPerguntas);
   }
 }

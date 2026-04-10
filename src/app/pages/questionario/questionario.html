@@ -7,6 +7,19 @@
     </p>
   </div>
 
+  <div class="container">
+  
+  <div class="sticky-progress">
+    <div class="progress-info">
+      <span>Seu Progresso: {{ porcentagemConcluida }}%</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" [style.width.%]="porcentagemConcluida"></div>
+    </div>
+  </div>
+
+  <div class="cabecalho">
+
   <div class="card-pergunta" *ngFor="let item of listaPerguntas; let i = index">
     <div class="card-header">
       <span class="badge-tema">{{ item.tema }}</span>
@@ -21,21 +34,21 @@
       <button
         class="btn-opcao btn-sim"
         [class.selecionado-sim]="item.respostaSelecionada === 'Sim'"
-        (click)="item.respostaSelecionada = 'Sim'">
+        (click)="item.respostaSelecionada = 'Sim'; salvarRascunho()">
         Sim
       </button>
 
       <button
         class="btn-opcao btn-nao"
         [class.selecionado-nao]="item.respostaSelecionada === 'Não'"
-        (click)="item.respostaSelecionada = 'Não'">
+        (click)="item.respostaSelecionada = 'Não'; salvarRascunho()">
         Não
       </button>
 
       <button
         class="btn-opcao btn-parcial"
         [class.selecionado-parcial]="item.respostaSelecionada === 'Parcialmente'"
-        (click)="item.respostaSelecionada = 'Parcialmente'">
+        (click)="item.respostaSelecionada = 'Parcialmente'; salvarRascunho()">
         Parcialmente
       </button>
     </div>

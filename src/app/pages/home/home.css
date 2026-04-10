@@ -53,3 +53,23 @@
 .btn-iniciar:active {
   transform: translateY(0);
 }
+
+.botoes-home {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-limpar {
+  background: none;
+  border: none;
+  color: #64748b;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-limpar:hover {
+  color: #ef4444;
+}
