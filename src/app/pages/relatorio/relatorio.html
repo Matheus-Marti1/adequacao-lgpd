@@ -16,7 +16,7 @@
   </div>
 
   <div class="alerta-sucesso" *ngIf="pontosAtencao.length === 0">
-    <h3>Parabéns! 🎉</h3>
+    <h3>Parabéns!</h3>
     <p>
       Sua empresa parece estar em total conformidade com os artigos avaliados da
       Lei Geral de Proteção de Dados.
@@ -56,7 +56,7 @@
 
 <div class="acoes-relatorio oculta-impressao">
   <button class="btn-voltar" routerLink="/">Voltar ao Início</button>
-  <button class="btn-imprimir" (click)="imprimirRelatorio()">
+  <button class="btn-imprimir" (click)="gerarPDF()">
     Salvar Relatório como PDF
   </button>
 </div>
