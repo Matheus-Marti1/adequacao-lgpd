@@ -11,7 +11,8 @@
 .caixa-apresentacao {
   text-align: center;
   padding: 60px 40px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background-color: var(--bg-card); /* Removemos o gradiente fixo */
+  border: 1px solid var(--borda);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   max-width: 650px;
@@ -20,14 +21,14 @@
 
 .caixa-apresentacao h1 {
   font-size: 2.2rem;
-  color: #0f172a;
+  color: var(--texto-principal);
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .descricao {
   font-size: 1.1rem;
-  color: #475569;
+  color: var(--texto-secundario);
   margin: 0 auto 35px auto;
   line-height: 1.6;
 }

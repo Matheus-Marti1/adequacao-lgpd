@@ -2,18 +2,20 @@
   max-width: 850px;
   margin: 0 auto;
   padding: 30px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
 }
 
 .cabecalho-relatorio {
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--borda);
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
 
 .cabecalho-relatorio h1 {
-  color: #1a365d;
+  color: var(--texto-principal);
   margin-bottom: 5px;
 }
 
@@ -24,8 +26,8 @@
 }
 
 .resumo-item {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background-color: var(--bg-destaque);
+  border: 1px solid var(--borda);
   border-radius: 8px;
   padding: 15px 25px;
   text-align: center;
@@ -35,12 +37,12 @@
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: #0f172a;
+  color: var(--texto-principal);
 }
 
 .resumo-label {
   font-size: 0.9rem;
-  color: #64748b;
+  color: var(--texto-secundario);
 }
 
 .alerta-sucesso {
@@ -52,40 +54,40 @@
 }
 
 .plano-acao h2 {
-  color: #b91c1c;
+  color: var(--texto-erro);
 }
 
 .subtitulo {
-  color: #475569;
+  color: var(--texto-secundario);
   margin-bottom: 20px;
 }
 
 .card-melhoria {
-  border: 1px solid #cbd5e1;
-  border-left: 5px solid #ef4444;
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--texto-erro);
   border-radius: 6px;
   margin-bottom: 20px;
-  background-color: #fafafa;
+  background-color: var(--bg-card);
 }
 
 .card-melhoria:has(.status-parcial) {
-  border-left-color: #f59e0b;
+  border-left-color: var(--texto-alerta);
 }
 
 .card-melhoria-header {
   display: flex;
   gap: 10px;
   padding: 15px;
-  background-color: #f1f5f9;
-  border-bottom: 1px solid #cbd5e1;
+  background-color: var(--bg-destaque);
+  border-bottom: 1px solid var(--borda);
   align-items: center;
   flex-wrap: wrap;
 }
 
 .badge-tema,
 .badge-artigo {
-  background-color: #e2e8f0;
-  color: #334155;
+  background-color: var(--bg-fundo);
+  color: var(--texto-principal);
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.85rem;
@@ -101,12 +103,12 @@
 }
 
 .status-nao {
-  background-color: #fee2e2;
-  color: #b91c1c;
+  background-color: var(--bg-erro);
+  color: var(--texto-erro);
 }
 .status-parcial {
-  background-color: #fef3c7;
-  color: #d97706;
+  background-color: var(--bg-alerta);
+  color: var(--texto-alerta);
 }
 
 .card-melhoria-body {
@@ -114,16 +116,16 @@
 }
 
 .pergunta-original {
-  color: #334155;
+  color: var(--texto-principal);
   margin-bottom: 15px;
 }
 
 .caixa-sugestao {
-  background-color: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background-color: var(--bg-destaque);
+  border: 1px solid var(--borda);
   padding: 15px;
   border-radius: 6px;
-  color: #1e3a8a;
+  color: var(--texto-principal);
 }
 
 .acoes-relatorio {
@@ -135,30 +137,45 @@
   padding: 0 30px;
 }
 
-.btn-voltar,
-.btn-imprimir {
-  padding: 10px 20px;
-  border: none;
+.alerta-sucesso {
+  background-color: var(--bg-sucesso);
+  border-left: 5px solid var(--texto-sucesso);
+  padding: 20px;
+  border-radius: 4px;
+  color: var(--texto-sucesso);
+}
+
+.btn-voltar, .btn-imprimir {
+  padding: 12px 24px;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
+  transition: all 0.2s ease;
 }
 
-.btn-voltar {
-  background-color: #e2e8f0;
-  color: #475569;
+.btn-voltar { 
+  background-color: transparent; 
+  color: var(--texto-principal); 
+  border: 2px solid var(--borda);
 }
-.btn-voltar:hover {
-  background-color: #cbd5e1;
+.btn-voltar:hover { 
+  background-color: var(--bg-destaque); 
 }
 
-.btn-imprimir {
-  background-color: #0f172a;
+.btn-imprimir { 
+  background-color: var(--cor-primaria); 
   color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-.btn-imprimir:hover {
-  background-color: #1e293b;
+.btn-imprimir:hover { 
+  background-color: var(--cor-primaria-hover); 
+  transform: translateY(-2px);
+}
+
+.btn-imprimir:active {
+  transform: translateY(0);
 }
 
 @media print {

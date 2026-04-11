@@ -1,3 +1,10 @@
-<main style="padding: 1rem">
+<header class="topbar">
+  <div class="logo">🛡️ Conformidade LGPD</div>
+  <button class="btn-tema" (click)="toggleTema()">
+    {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro' }}
+  </button>
+</header>
+
+<main>
   <router-outlet></router-outlet>
 </main>

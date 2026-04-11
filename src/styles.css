@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-fundo: #f0f4f8;
+  --bg-card: #ffffff;
+  --texto-principal: #1e293b;
+  --texto-secundario: #64748b;
+  --borda: #cbd5e1;
+  --cor-primaria: #2563eb;
+  --cor-primaria-hover: #1d4ed8;
+  --bg-destaque: #f8fafc;
+  
+  --bg-sucesso: #e8f5e9; --texto-sucesso: #1b5e20;
+  --bg-erro: #ffebee;    --texto-erro: #b71c1c;
+  --bg-alerta: #fffde7;  --texto-alerta: #f57f17;
+}
+
+body.dark-mode {
+  --bg-fundo: #0f172a;
+  --bg-card: #1e293b;
+  --texto-principal: #f8fafc;
+  --texto-secundario: #94a3b8;
+  --borda: #334155;
+  --cor-primaria: #3b82f6;
+  --cor-primaria-hover: #60a5fa;
+  --bg-destaque: #0b1120;
+  
+  --bg-sucesso: #064e3b; --texto-sucesso: #34d399;
+  --bg-erro: #7f1d1d;    --texto-erro: #f87171;
+  --bg-alerta: #78350f;  --texto-alerta: #fbbf24;
+}
+
+body {
+  background-color: var(--bg-fundo);
+  color: var(--texto-principal);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

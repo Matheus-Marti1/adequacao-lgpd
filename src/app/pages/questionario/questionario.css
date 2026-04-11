@@ -1,8 +1,26 @@
 .container {
-  max-width: 800px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-perguntas {
+  display: grid;
+  grid-template-columns: 1fr; /* Em telas pequenas, 1 coluna */
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .grid-perguntas {
+    grid-template-columns: 1fr 1fr; /* Em telas de PC, divide em 2 colunas! */
+  }
+}
+
+@media (min-width: 1600px) {
+  .grid-perguntas {
+    grid-template-columns: 1fr 1fr 1fr; /* Em monitores gigantes, 3 colunas! */
+  }
 }
 
 .cabecalho {
@@ -13,10 +31,10 @@
 .sticky-progress {
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: var(--bg-fundo);
   padding: 15px 0;
   z-index: 100;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--borda);
   margin-bottom: 20px;
 }
 
@@ -32,7 +50,7 @@
 .progress-bar-bg {
   width: 100%;
   height: 10px;
-  background-color: #e2e8f0;
+  background-color: var(--borda);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -44,8 +62,8 @@
 }
 
 .card-pergunta {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--borda);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -60,8 +78,8 @@
 
 .badge-tema,
 .badge-artigo {
-  background-color: #f0f4f8;
-  color: #2c3e50;
+  background-color: var(--bg-fundo);
+  color: var(--texto-secundario);
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.85rem;
@@ -70,7 +88,7 @@
 
 .card-body h3 {
   font-size: 1.1rem;
-  color: #333;
+  color: var(--texto-principal);
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -83,8 +101,10 @@
 .btn-opcao {
   flex: 1;
   padding: 10px;
-  border: 2px solid #ddd;
-  background-color: white;
+  border: 2px solid;
+  background-color: var(--bg-card);
+  border-color: var(--borda);
+  color: var(--texto-principal);
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
@@ -92,27 +112,27 @@
 }
 
 .btn-opcao:hover {
-  background-color: #f9f9f9;
+  background-color: var(--bg-destaque);
 }
 
 .selecionado-sim {
-  border-color: #2e7d32;
-  background-color: #e8f5e9;
-  color: #1b5e20;
+  border-color: var(--texto-sucesso); 
+  background-color: var(--bg-sucesso); 
+  color: var(--texto-sucesso);
   font-weight: bold;
 }
 
 .selecionado-nao {
-  border-color: #c62828;
-  background-color: #ffebee;
-  color: #b71c1c;
+  border-color: var(--texto-erro); 
+  background-color: var(--bg-erro); 
+  color: var(--texto-erro);
   font-weight: bold;
 }
 
 .selecionado-parcial {
-  border-color: #f57f17;
-  background-color: #fffde7;
-  color: #f57f17;
+  border-color: var(--texto-alerta); 
+  background-color: var(--bg-alerta); 
+  color: var(--texto-alerta);
   font-weight: bold;
 }
 
@@ -122,7 +142,7 @@
 }
 
 .btn-gerar {
-  background-color: #0056b3;
+  background-color: var(--cor-primaria);
   color: white;
   padding: 12px 24px;
   border: none;
@@ -130,8 +150,14 @@
   font-size: 1.1rem;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 .btn-gerar:hover {
-  background-color: #004494;
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-2px);
+}
+
+.btn-gerar:active {
+  transform: translateY(0);
 }

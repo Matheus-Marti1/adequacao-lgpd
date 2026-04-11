@@ -11,4 +11,14 @@ import { RouterModule, RouterOutlet } from "@angular/router";
 })
 export class AppComponent {
   title = "adequacao-lgpd";
+  isDarkMode = false;
+
+  toggleTema() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
 }
